@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
+import java.util.Locale;
+
 @Configuration
 public class TestConfig {
 
@@ -13,6 +15,7 @@ public class TestConfig {
     static PropertySourcesPlaceholderConfigurer propertyConfig() {
         return new PropertySourcesPlaceholderConfigurer();
     }
+
 
     @Bean
     static MessageSource messageSource() {
@@ -31,7 +34,7 @@ public class TestConfig {
         ms.setDefaultEncoding("UTF-8");
         messageSources[0] = ms;
 
-        return new MessageSourcesImpl(messageSources);
+        return new MessageSourcesImpl(messageSources, Locale.UK);
     }
 
 

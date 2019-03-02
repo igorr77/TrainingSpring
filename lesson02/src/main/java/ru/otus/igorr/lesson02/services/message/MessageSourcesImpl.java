@@ -16,10 +16,12 @@ public class MessageSourcesImpl implements MessageSources {
     private static final Logger LOG = LoggerFactory.getLogger(MessageSourcesImpl.class);
 
     private final MessageSource[] messageSources;
+    private final Locale locale;
 
     @Autowired
-    public MessageSourcesImpl(final MessageSource[] messageSources) {
+    public MessageSourcesImpl(final MessageSource[] messageSources, Locale locale) {
         this.messageSources = messageSources;
+        this.locale = locale;
     }
 
     @Override
@@ -42,7 +44,7 @@ public class MessageSourcesImpl implements MessageSources {
     private String findMessageInBundles(final MessageSourceResolvable messageSourceResolvable) {
         for (MessageSource messageSource : this.messageSources) {
             if (hasMessage(messageSource, messageSourceResolvable)) {
-                return messageSource.getMessage(messageSourceResolvable, Locale.forLanguageTag("fr"));
+                return messageSource.getMessage(messageSourceResolvable, locale);
             }
         }
         return messageSourceResolvable.getCodes()[0].concat(" No found");
