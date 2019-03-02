@@ -1,16 +1,17 @@
 package ru.otus.igorr.lesson02.dao;
 
 import com.opencsv.CSVReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import ru.otus.igorr.lesson02.domain.question.Item;
 import ru.otus.igorr.lesson02.domain.question.ItemType;
 import ru.otus.igorr.lesson02.domain.question.Question;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class FileDataSourceImpl implements DataSource {
 
     private final String questionsListFileName;
 
-    public FileDataSourceImpl(@Value("${testing.file}") String questionsListFileName){
+    public FileDataSourceImpl(@Value("${testing.file.default}") String questionsListFileName) {
         this.questionsListFileName = questionsListFileName;
     }
 
@@ -46,10 +47,10 @@ public class FileDataSourceImpl implements DataSource {
         }
 
         return result;
+
     }
 
-    // Вообще-то метод должен быть пиватным, но я пока не разобрался как мокать приват в junit5
-    public List<Item> readData(String questionsListFileName) throws IOException {
+    private List<Item> readData(String questionsListFileName) throws IOException {
         List<Item> result = new ArrayList<>();
 
         //Build reader instance
