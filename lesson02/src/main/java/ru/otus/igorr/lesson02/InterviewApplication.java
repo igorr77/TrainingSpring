@@ -10,8 +10,6 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import ru.otus.igorr.lesson02.services.process.InterviewProcess;
 
-import java.util.Locale;
-
 @Configuration
 @ComponentScan("ru.otus.igorr.lesson02")
 @PropertySource("classpath:app.properties")
@@ -20,13 +18,7 @@ public class InterviewApplication {
     private static final Logger LOG = LoggerFactory.getLogger(InterviewApplication.class);
 
     @Value("${message.bundle}")
-    String messageBundle;
-
-    @Value("${locale.language}")
-    String language;
-    @Value("${locale.country}")
-    String country;
-
+    private String messageBundle;
 
     public static void main(String... args) {
 
@@ -43,11 +35,6 @@ public class InterviewApplication {
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyConfig() {
         return new PropertySourcesPlaceholderConfigurer();
-    }
-
-    @Bean("locale")
-    public Locale getLocale() {
-        return new Locale(language, country);
     }
 
     @Bean
