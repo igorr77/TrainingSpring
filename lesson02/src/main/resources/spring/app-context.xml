@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="ru.otus.igorr.lesson02.services.users.UserServiceImpl"/>
+    <bean id="question" class="ru.otus.igorr.lesson02.services.questions.QuestionServiceImpl"/>
+    <bean id="mockdata" class="ru.otus.igorr.lesson02.dao.MockDataSourceImpl"/>
+    <bean id="filedata" class="ru.otus.igorr.lesson02.dao.FileDataSourceImpl"/>
+    <bean id="interview" class="ru.otus.igorr.lesson02.services.process.InterviewProcessImpl">
+        <constructor-arg index="0" ref="user"/>
+        <constructor-arg index="1" ref="question"/>
+        <constructor-arg index="2" ref="filedata"/>
+    </bean>
+
+</beans>
