@@ -3,21 +3,22 @@ package ru.otus.igorr.lesson04.services.message;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.context.MessageSource;
+import ru.otus.igorr.lesson04.config.MessagesProps;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-//@ExtendWith(SpringExtension.class)
-//@ContextConfiguration(classes = TestConfig.class)
 @SpringBootTest
 class MessageSourcesImplTest {
 
 
     @Autowired
+    MessageSource messageSource;
     MessageSources messageService;
 
     @BeforeEach
@@ -29,13 +30,29 @@ class MessageSourcesImplTest {
     }
 
     @Test
-    void getMessage() {
+    void getMessageTest() {
+        MessageSource[] messageSources = {messageSource};
+        MessagesProps props = new MessagesProps();
+        props.setLanguage("en");
+        props.setCountry("GB");
+        messageService = new MessageSourcesImpl(messageSources, props);
+
         assertNotNull(messageService.getMessage("input.name"));
     }
 
-    @Test
-    void getMessage1() {
+
+    @ParameterizedTest
+    @ValueSource(strings = "input.name")
+    void getMessage1Test(String param) {
+        MessageSource[] messageSources = {};
+        MessagesProps props = new MessagesProps();
+        props.setLanguage("en");
+        props.setCountry("GB");
+        messageService = new MessageSourcesImpl(messageSources, props);
+
+        assertEquals(param.concat(": Not found"), messageService.getMessage(param));
     }
+
 
     @Test
     void getMessage2() {

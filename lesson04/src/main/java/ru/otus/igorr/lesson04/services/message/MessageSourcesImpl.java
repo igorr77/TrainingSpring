@@ -20,7 +20,7 @@ public class MessageSourcesImpl implements MessageSources {
 
     // хочу поработать с разными бандлами из одного сервиса
     private final MessageSource[] messageSources;
-    private final MessagesProps props;
+    private MessagesProps props;
 
     @Autowired
     public MessageSourcesImpl(final MessageSource[] messageSources,
@@ -53,7 +53,7 @@ public class MessageSourcesImpl implements MessageSources {
                 return messageSource.getMessage(messageSourceResolvable, new Locale(props.getLanguage(), props.getCountry()));
             }
         }
-        return messageSourceResolvable.getCodes()[0].concat(" No found");
+        return messageSourceResolvable.getCodes()[0].concat(":").concat(" Not found");
     }
 
 }

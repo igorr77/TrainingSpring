@@ -36,7 +36,5 @@ public class Question {
                 .filter(Answer::isCorrect)
                 .findFirst();
         return answer.orElse(new Answer());
-
-
     }
 }

@@ -2,7 +2,7 @@ package ru.otus.igorr.lesson04.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "messages")
+@ConfigurationProperties(prefix = "messages", ignoreInvalidFields = true)
 public class MessagesProps {
     private String  bundle;
     private String language;

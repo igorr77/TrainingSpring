@@ -3,9 +3,8 @@ package ru.otus.igorr.lesson04.dao;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.otus.igorr.lesson04.config.DataSourceProps;
 import ru.otus.igorr.lesson04.domain.question.Item;
 import ru.otus.igorr.lesson04.domain.question.ItemType;
@@ -17,10 +16,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class FileDataSourceImplTest {
 
-    @Mock
+    @MockBean
     private DataSourceProps props;
 
     @BeforeEach
