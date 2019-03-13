@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class ScannerService {
 
-    private static Scanner scanner;
+    private Scanner scanner;
 
-    private static ScannerService Instance = new ScannerService();
+    private static ScannerService instance = new ScannerService();
 
     public static ScannerService getInstance() {
-        return Instance;
+        return instance;
     }
 
     private ScannerService() {
