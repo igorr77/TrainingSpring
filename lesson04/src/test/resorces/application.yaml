@@ -1,0 +1,14 @@
+spring:
+#  main:
+#    banner-mode: "off"
+#
+messages:
+  language: "en"
+  country: "GB"
+  bundle: "/messages/app_message"
+#
+datasource:
+  file: "data/questions.csv"
+#
+testing:
+  totalCountQuestion: 5
