@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "messages.language",
+      "type": "java.lang.String",
+      "description": "Description for messages.language."
+    },
+    {
+      "name": "messages.country",
+      "type": "java.lang.String",
+      "description": "Description for messages.country."
+    },
+    {
+      "name": "messages.bundle",
+      "type": "java.lang.String",
+      "description": "Description for messages.bundle."
+    }
+  ] }
