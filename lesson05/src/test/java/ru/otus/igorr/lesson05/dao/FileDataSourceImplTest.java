@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.otus.igorr.lesson05.config.DataSourceProps;
+import ru.otus.igorr.lesson05.dao.FileDataSourceImpl;
 import ru.otus.igorr.lesson05.domain.question.Item;
 import ru.otus.igorr.lesson05.domain.question.ItemType;
 import ru.otus.igorr.lesson05.domain.question.Question;
@@ -44,9 +45,9 @@ class FileDataSourceImplTest {
         List<Question> questionList = dataSource.prepareList();
 
         assertAll("qqq",
-                () -> assertNotEquals(0, questionList.size()),
-                () -> assertEquals("question 1", questionList.get(0).getText()),
-                () -> assertEquals("possibleAnswer 1", questionList.get(0).getAnswerList().get(0).getText())
+                  () -> assertNotEquals(0, questionList.size()),
+                  () -> assertEquals("question 1", questionList.get(0).getText()),
+                  () -> assertEquals("possibleAnswer 1", questionList.get(0).getAnswerList().get(0).getText())
         );
     }
 

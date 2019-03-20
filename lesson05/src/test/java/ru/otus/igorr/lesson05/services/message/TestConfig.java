@@ -4,6 +4,8 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import ru.otus.igorr.lesson05.config.MessagesProps;
+import ru.otus.igorr.lesson05.services.message.MessageSources;
+import ru.otus.igorr.lesson05.services.message.MessageSourcesImpl;
 
 //@Configuration
 class TestConfig {

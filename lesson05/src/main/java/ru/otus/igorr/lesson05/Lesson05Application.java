@@ -4,6 +4,7 @@ package ru.otus.igorr.lesson05;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
@@ -22,7 +23,7 @@ public class Lesson05Application {
 
     private static final Logger LOG = LoggerFactory.getLogger(Lesson05Application.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         ApplicationContext ctx = SpringApplication.run(Lesson05Application.class, args);
 
         String[] beanNames = ctx.getBeanDefinitionNames();
@@ -32,8 +33,11 @@ public class Lesson05Application {
         }
 
         InterviewProcess interviewProcess = ctx.getBean(InterviewProcess.class);
+        interviewProcess.login();
         interviewProcess.process();
+        interviewProcess.result();
     }
+
 
 
     @Bean

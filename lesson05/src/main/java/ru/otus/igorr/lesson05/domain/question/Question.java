@@ -33,8 +33,8 @@ public class Question {
     public Answer getCorrectAnswer() {
 
         Optional<Answer> answer = answerList.stream()
-                .filter(Answer::isCorrect)
-                .findFirst();
+                                            .filter(Answer::isCorrect)
+                                            .findFirst();
         return answer.orElse(new Answer());
     }
 

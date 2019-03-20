@@ -33,6 +33,5 @@ public class ScannerService {
 */
 public interface ScannerService {
     String nextLine();
-
     int nextInt();
 }

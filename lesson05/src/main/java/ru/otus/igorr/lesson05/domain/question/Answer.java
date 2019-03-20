@@ -13,7 +13,7 @@ public class Answer {
         this.correct = correct;
     }
 
-    public Answer() {
+    public Answer(){
         this.questionId = -1;
         this.answerId = -1;
         this.text = "empty";

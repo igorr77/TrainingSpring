@@ -27,6 +27,8 @@ public class InterviewProcessImpl implements InterviewProcess {
     private final DataSource dataSource;
     private final MessageSources messageServices;
     private final TestingProps props;
+    private User user;
+    private double result;
 
     @Autowired
     public InterviewProcessImpl(final UserService userService,
@@ -41,16 +43,21 @@ public class InterviewProcessImpl implements InterviewProcess {
         this.messageServices = messageService;
         this.props = props;
 
-        LOG.debug("TotalCountQuestion: {}", this.props.getTotalCountQuestion());
+        LOG.debug("TotalCountQuestion: {}",this.props.getTotalCountQuestion());
+    }
+
+    @Override
+    public void login(){
+        String helloText = messageServices.getMessage("input.hello");
+        user = userService.getUser();
+        System.out.println(String.format(helloText, user.getName()));
+
     }
 
     @Override
     public void process() {
-        String helloText = messageServices.getMessage("input.hello");
-        String resultText = messageServices.getMessage("out.result");
 
-        User user = userService.getUser();
-        System.out.println(String.format(helloText, user.getName()));
+        String resultText = messageServices.getMessage("out.result");
 
         List<Question> questions = dataSource.prepareList();
         Long successAnswer = questions.stream()
@@ -58,9 +65,13 @@ public class InterviewProcessImpl implements InterviewProcess {
                 .map(question -> questionService.ask(question))
                 .filter(Boolean::booleanValue)
                 .count();
-        Double result = Double.valueOf(successAnswer) / Double.valueOf(props.getTotalCountQuestion());
+        result = Double.valueOf(successAnswer) / Double.valueOf(props.getTotalCountQuestion());
 
-        System.out.println(String.format(resultText, result));
+    }
+
+    @Override
+    public void result(){
+        System.out.println(result);
     }
 
 

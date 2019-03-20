@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.MessageSource;
 import ru.otus.igorr.lesson05.config.MessagesProps;
+import ru.otus.igorr.lesson05.services.message.MessageSources;
+import ru.otus.igorr.lesson05.services.message.MessageSourcesImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

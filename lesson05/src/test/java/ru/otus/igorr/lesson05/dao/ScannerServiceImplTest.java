@@ -4,10 +4,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.otus.igorr.lesson05.dao.ScannerService;
+import ru.otus.igorr.lesson05.dao.ScannerServiceImpl;
 
 import java.io.ByteArrayInputStream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ScannerServiceImplTest {
 
@@ -19,14 +21,14 @@ class ScannerServiceImplTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {Integer.MIN_VALUE, -1, 0, 1, Integer.MAX_VALUE})
+    @ValueSource(ints={Integer.MIN_VALUE,-1, 0, 1,Integer.MAX_VALUE})
     void nextIntTest(int param) {
         ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(param).getBytes());
         System.setIn(input);
 
         scanner = new ScannerServiceImpl();
         int in = scanner.nextInt();
-        assertEquals(param, in);
+        assertEquals( param, in);
     }
 
     @Test
@@ -37,17 +39,17 @@ class ScannerServiceImplTest {
 
         scanner = new ScannerServiceImpl();
         int in = scanner.nextInt();
-        assertEquals(1, in);
+        assertEquals( 1, in);
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"11111", "22222", "333333"})
+    @ValueSource(strings = {"11111","22222","333333"})
     void nextLineTest(String param) {
         ByteArrayInputStream input = new ByteArrayInputStream(param.getBytes());
         System.setIn(input);
 
         scanner = new ScannerServiceImpl();
         String in = scanner.nextLine();
-        assertEquals(param, in);
+        assertEquals( param, in);
     }
 }

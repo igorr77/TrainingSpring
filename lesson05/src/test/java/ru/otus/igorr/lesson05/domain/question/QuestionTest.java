@@ -3,6 +3,7 @@ package ru.otus.igorr.lesson05.domain.question;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.otus.igorr.lesson05.domain.question.Question;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,7 +13,7 @@ class QuestionTest {
 
     @BeforeEach
     void setUp() {
-        question = new Question(1, "Q1");
+        question = new Question(1,"Q1");
     }
 
     @AfterEach
@@ -42,8 +43,8 @@ class QuestionTest {
 
     @Test
     void getCorrectAnswerTest1() {
-        question.addAnswer(1, "Q1A1", false);
-        question.addAnswer(2, "Q1A2", true);
+        question.addAnswer(1,"Q1A1", false);
+        question.addAnswer(2,"Q1A2", true);
         assertEquals(2, question.getCorrectAnswer().getAnswerId());
     }
 
@@ -51,8 +52,8 @@ class QuestionTest {
     void getCorrectAnswerTest2() {
         final int FAIL_ANSWER = -1;
 
-        question.addAnswer(1, "Q1A1", false);
-        question.addAnswer(2, "Q1A2", false);
+        question.addAnswer(1,"Q1A1", false);
+        question.addAnswer(2,"Q1A2", false);
         assertEquals(FAIL_ANSWER, question.getCorrectAnswer().getAnswerId());
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.otus.igorr.lesson05.dao.ScannerService;
 import ru.otus.igorr.lesson05.domain.user.User;
 import ru.otus.igorr.lesson05.services.message.MessageSources;
+import ru.otus.igorr.lesson05.services.users.UserServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;

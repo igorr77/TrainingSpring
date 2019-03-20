@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "messages", ignoreInvalidFields = true)
 public class MessagesProps {
-    private String bundle;
+    private String  bundle;
     private String language;
     private String country;
 

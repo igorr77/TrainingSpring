@@ -10,6 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.otus.igorr.lesson05.dao.ScannerService;
 import ru.otus.igorr.lesson05.domain.question.Question;
 import ru.otus.igorr.lesson05.services.message.MessageSources;
+import ru.otus.igorr.lesson05.services.questions.QuestionServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;

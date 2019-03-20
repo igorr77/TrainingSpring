@@ -10,6 +10,8 @@ import ru.otus.igorr.lesson05.dao.DataSource;
 import ru.otus.igorr.lesson05.domain.question.Question;
 import ru.otus.igorr.lesson05.domain.user.User;
 import ru.otus.igorr.lesson05.services.message.MessageSources;
+import ru.otus.igorr.lesson05.services.process.InterviewProcess;
+import ru.otus.igorr.lesson05.services.process.InterviewProcessImpl;
 import ru.otus.igorr.lesson05.services.questions.QuestionService;
 import ru.otus.igorr.lesson05.services.users.UserService;
 
@@ -51,9 +53,14 @@ class InterviewProcessImplTest {
     }
 
     @Test
+    void loginTest(){
+        User user = new User("User Name");
+    }
+
+    @Test
     void processTest() {
 
-        User user = new User("User Name");
+
         List<Question> questionList = new ArrayList<>();
         Question question = new Question(1, "Q1");
         questionList.add(question);
@@ -61,7 +68,7 @@ class InterviewProcessImplTest {
         question.addAnswer(2, "Q1A2", true);
 
 
-        when(userService.getUser()).thenReturn(user);
+        //when(userService.getUser()).thenReturn(user);
         when(dataSource.prepareList()).thenReturn(questionList);
         when(questionService.ask(any(Question.class))).thenReturn(true);
         when(messageService.getMessage(any(String.class))).thenReturn("Message 1");

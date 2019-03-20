@@ -8,16 +8,15 @@ public enum ItemType {
 
     private final String code;
 
-    ItemType(String code) {
+    ItemType(String code){
         this.code = code;
     }
 
     private static final HashMap<String, ItemType> CODE_MAP = new HashMap<>();
-
     static {
-        for (ItemType item : ItemType.values()) {
-            CODE_MAP.put(item.code, item);
-        }
+       for(ItemType item : ItemType.values()) {
+           CODE_MAP.put(item.code, item);
+       }
     }
 
     public String getCode() {

@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface QuestionService {
     void show(List<Question> questions);
-
     boolean ask(Question question);
 }
