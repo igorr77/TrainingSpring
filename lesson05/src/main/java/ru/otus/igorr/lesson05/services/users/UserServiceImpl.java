@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser() {
-        //ScannerService scanner = ScannerService.getInstance();
         System.out.println(messageService.getMessage("input.name"));
         String name = scanner.nextLine();
         return new User(name);
