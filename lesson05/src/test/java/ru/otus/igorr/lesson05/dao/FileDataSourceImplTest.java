@@ -1,12 +1,9 @@
 package ru.otus.igorr.lesson05.dao;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.otus.igorr.lesson05.config.DataSourceProps;
-import ru.otus.igorr.lesson05.dao.FileDataSourceImpl;
 import ru.otus.igorr.lesson05.domain.question.Item;
 import ru.otus.igorr.lesson05.domain.question.ItemType;
 import ru.otus.igorr.lesson05.domain.question.Question;
@@ -22,16 +19,6 @@ class FileDataSourceImplTest {
 
     @MockBean
     private DataSourceProps props;
-
-    @BeforeEach
-    void setUp() {
-
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
 
     @Test
     void prepareListTest() {

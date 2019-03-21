@@ -1,24 +1,16 @@
 package ru.otus.igorr.lesson05.dao;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import ru.otus.igorr.lesson05.dao.ScannerService;
-import ru.otus.igorr.lesson05.dao.ScannerServiceImpl;
 
 import java.io.ByteArrayInputStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ScannerServiceImplTest {
 
     ScannerService scanner;
-
-    @BeforeEach
-    void setUp() {
-
-    }
 
     @ParameterizedTest
     @ValueSource(ints={Integer.MIN_VALUE,-1, 0, 1,Integer.MAX_VALUE})

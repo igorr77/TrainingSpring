@@ -1,6 +1,5 @@
 package ru.otus.igorr.lesson05.dao;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.otus.igorr.lesson05.domain.question.Item;
 import ru.otus.igorr.lesson05.domain.question.ItemType;
@@ -12,10 +11,6 @@ class ItemTest {
     private final String[] qRow = {"Q", " 0", " 1  ", "   Question Q1"};
     private final String[] aRow = {"A ", " 1", "  1", "  Answer Q1A1 ", "true"};
 
-
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
     void parseQTest() {
@@ -43,23 +38,4 @@ class ItemTest {
 
     }
 
-    @Test
-    void getType() {
-    }
-
-    @Test
-    void getParentId() {
-    }
-
-    @Test
-    void getId() {
-    }
-
-    @Test
-    void getText() {
-    }
-
-    @Test
-    void isCorrect() {
-    }
 }

@@ -5,9 +5,6 @@ import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellMethodAvailability;
-import org.springframework.shell.standard.ShellOption;
-import ru.otus.igorr.lesson05.domain.question.Question;
-import ru.otus.igorr.lesson05.domain.user.User;
 import ru.otus.igorr.lesson05.services.process.InterviewProcess;
 import ru.otus.igorr.lesson05.services.questions.QuestionService;
 import ru.otus.igorr.lesson05.services.users.UserService;
@@ -30,8 +27,6 @@ public class ShellCommands {
         this.userService = userService;
         this.questionService = questionService;
     }
-
-
 
 
     @ShellMethod(key = "login", value = "Login user")
