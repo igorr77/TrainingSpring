@@ -16,14 +16,15 @@ import ru.otus.igorr.lesson05.services.process.InterviewProcess;
 
 import java.util.Arrays;
 
-@Configuration
-//@SpringBootApplication
+//@Configuration
+@SpringBootApplication
 @EnableConfigurationProperties(MessagesProps.class)
 public class Lesson05Application {
 
     private static final Logger LOG = LoggerFactory.getLogger(Lesson05Application.class);
 
     public static void main(String[] args){
+        /*
         ApplicationContext ctx = SpringApplication.run(Lesson05Application.class, args);
 
         String[] beanNames = ctx.getBeanDefinitionNames();
@@ -36,6 +37,8 @@ public class Lesson05Application {
         interviewProcess.login();
         interviewProcess.process();
         interviewProcess.result();
+        */
+        SpringApplication.run(Lesson05Application.class);
     }
 
 

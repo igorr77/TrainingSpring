@@ -16,30 +16,11 @@ class QuestionTest {
         question = new Question(1,"Q1");
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
-    @Test
-    void addAnswer() {
-    }
-
     @Test
     void getId() {
         assertEquals(1, question.getId());
     }
 
-    @Test
-    void setId() {
-    }
-
-    @Test
-    void getText() {
-    }
-
-    @Test
-    void getAnswerList() {
-    }
 
     @Test
     void getCorrectAnswerTest1() {

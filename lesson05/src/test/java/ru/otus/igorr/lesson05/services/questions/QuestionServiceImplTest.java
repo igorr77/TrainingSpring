@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.otus.igorr.lesson05.dao.ScannerService;
@@ -23,7 +24,8 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class QuestionServiceImplTest {
 
-    private QuestionServiceImpl service;
+    @Autowired
+    private QuestionService service;
     private List<Question> questionList;
     private Question question;
 
@@ -35,15 +37,7 @@ class QuestionServiceImplTest {
     @BeforeEach
     void setUp() {
         initQuestionList();
-        service = new QuestionServiceImpl(messageService, scannerService);
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
-    @Test
-    void read() {
+        initQuestion();
     }
 
     @Test
@@ -54,8 +48,6 @@ class QuestionServiceImplTest {
     @ParameterizedTest
     @ValueSource(ints = {2})
     void askTrueTest(int param) {
-        initQuestion();
-
         when(messageService.getMessage(any(String.class))).thenReturn("Question:");
         when(scannerService.nextInt()).thenReturn(param);
         assertTrue(service.ask(question));
@@ -64,12 +56,8 @@ class QuestionServiceImplTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 3})
     void askFalseTest(int param) {
-
-        initQuestion();
-
         when(messageService.getMessage(any(String.class))).thenReturn("Question:");
         when(scannerService.nextInt()).thenReturn(param);
-
         assertFalse(service.ask(question));
     }
 
@@ -78,7 +66,6 @@ class QuestionServiceImplTest {
         question.addAnswer(1, "answer 1", false);
         question.addAnswer(2, "answer 2", true);
         question.addAnswer(3, "answer 3", false);
-
     }
 
     private void initQuestionList() {
@@ -87,6 +74,5 @@ class QuestionServiceImplTest {
         questionList.add(new Question(2, "OptionQuestion 2"));
         questionList.add(new Question(3, "OptionQuestion 3"));
     }
-
 
 }

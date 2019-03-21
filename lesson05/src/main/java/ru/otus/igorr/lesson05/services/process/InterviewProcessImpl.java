@@ -47,11 +47,11 @@ public class InterviewProcessImpl implements InterviewProcess {
     }
 
     @Override
-    public void login(){
+    public User login(){
         String helloText = messageServices.getMessage("input.hello");
         user = userService.getUser();
         System.out.println(String.format(helloText, user.getName()));
-
+        return user;
     }
 
     @Override
@@ -66,13 +66,15 @@ public class InterviewProcessImpl implements InterviewProcess {
                 .filter(Boolean::booleanValue)
                 .count();
         result = Double.valueOf(successAnswer) / Double.valueOf(props.getTotalCountQuestion());
-
     }
 
     @Override
-    public void result(){
+    public double result(){
         System.out.println(result);
+        return result;
     }
 
-
+    public User getUser() {
+        return user;
+    }
 }

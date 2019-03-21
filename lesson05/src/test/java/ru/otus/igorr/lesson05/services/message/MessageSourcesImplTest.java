@@ -21,46 +21,16 @@ class MessageSourcesImplTest {
 
     @Autowired
     MessageSource messageSource;
+    @Autowired
     MessageSources messageService;
-
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
-    @Test
-    void getMessageTest() {
-        MessageSource[] messageSources = {messageSource};
-        MessagesProps props = new MessagesProps();
-        props.setLanguage("en");
-        props.setCountry("GB");
-        messageService = new MessageSourcesImpl(messageSources, props);
-
-        assertNotNull(messageService.getMessage("input.name"));
-    }
+    @Autowired
+    MessagesProps messagesProps;
 
 
     @ParameterizedTest
     @ValueSource(strings = "input.name")
-    void getMessage1Test(String param) {
-        MessageSource[] messageSources = {};
-        MessagesProps props = new MessagesProps();
-        props.setLanguage("en");
-        props.setCountry("GB");
-        messageService = new MessageSourcesImpl(messageSources, props);
-
-        assertEquals(param.concat(": Not found"), messageService.getMessage(param));
+    void getMessageTest(String param) {
+        assertNotNull(messageService.getMessage(param));
     }
 
-
-    @Test
-    void getMessage2() {
-    }
-
-    @Test
-    void hasMessage() {
-    }
 }

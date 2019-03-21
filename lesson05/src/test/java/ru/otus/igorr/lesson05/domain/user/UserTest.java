@@ -17,10 +17,6 @@ class UserTest {
         user = new User("User Name");
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     @ParameterizedTest
     @ValueSource(strings = {"AAA","BBB"})
     void complexSetGetNameTest(String param) {
