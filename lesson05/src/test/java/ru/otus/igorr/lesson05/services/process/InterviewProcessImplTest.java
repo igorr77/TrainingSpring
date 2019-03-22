@@ -1,7 +1,5 @@
 package ru.otus.igorr.lesson05.services.process;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -14,8 +12,6 @@ import ru.otus.igorr.lesson05.dao.ScannerService;
 import ru.otus.igorr.lesson05.domain.question.Question;
 import ru.otus.igorr.lesson05.domain.user.User;
 import ru.otus.igorr.lesson05.services.message.MessageSources;
-import ru.otus.igorr.lesson05.services.process.InterviewProcess;
-import ru.otus.igorr.lesson05.services.process.InterviewProcessImpl;
 import ru.otus.igorr.lesson05.services.questions.QuestionService;
 import ru.otus.igorr.lesson05.services.users.UserService;
 
@@ -46,12 +42,6 @@ class InterviewProcessImplTest {
     @Autowired
     InterviewProcess process;
 
-    @Test
-    void InterviewProcessImplConstructorTest() {
-        when(props.getTotalCountQuestion()).thenReturn(5);
-        InterviewProcessImpl constructor = new InterviewProcessImpl(userService, questionService, dataSource, messageService, props);
-        assertNotNull(constructor);
-    }
 
     @Test
     void loginTest(){
