@@ -32,7 +32,6 @@ class FileDataSourceImplTest {
         result.add(new Item(ItemType.A, 1, 2, "Q1A2", true));
 
         when(props.getFile()).thenReturn("data/questions.csv");
-        //FileDataSourceImpl dataSource = new FileDataSourceImpl(props);
         List<Question> questionList = dataSource.prepareList();
 
         assertAll("qqq",
