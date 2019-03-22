@@ -12,7 +12,6 @@ class ScannerServiceImplTest {
 
     ScannerService scanner;
 
-
     @ParameterizedTest
     @ValueSource(ints={Integer.MIN_VALUE,-1, 0, 1,Integer.MAX_VALUE})
     void nextIntTest(int param) {

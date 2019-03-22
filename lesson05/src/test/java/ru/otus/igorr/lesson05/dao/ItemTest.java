@@ -12,7 +12,6 @@ class ItemTest {
     private final String[] aRow = {"A ", " 1", "  1", "  Answer Q1A1 ", "true"};
 
 
-
     @Test
     void parseQTest() {
         Item qa = new Item(qRow);

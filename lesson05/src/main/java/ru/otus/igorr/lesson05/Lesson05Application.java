@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import ru.otus.igorr.lesson05.config.MessagesProps;
 
-//@Configuration
 @SpringBootApplication
 @EnableConfigurationProperties(MessagesProps.class)
 public class Lesson05Application {

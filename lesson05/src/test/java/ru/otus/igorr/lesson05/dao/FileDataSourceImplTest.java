@@ -1,6 +1,7 @@
 package ru.otus.igorr.lesson05.dao;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.otus.igorr.lesson05.config.DataSourceProps;
@@ -17,6 +18,8 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class FileDataSourceImplTest {
 
+    @Autowired
+    DataSource dataSource;
     @MockBean
     private DataSourceProps props;
 
@@ -29,7 +32,6 @@ class FileDataSourceImplTest {
         result.add(new Item(ItemType.A, 1, 2, "Q1A2", true));
 
         when(props.getFile()).thenReturn("data/questions.csv");
-        FileDataSourceImpl dataSource = new FileDataSourceImpl(props);
         List<Question> questionList = dataSource.prepareList();
 
         assertAll("qqq",
